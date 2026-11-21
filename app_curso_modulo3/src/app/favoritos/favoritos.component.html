@@ -1,0 +1,19 @@
+<ActionBar title="Favoritos">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<GridLayout rows="auto, *">
+  <Label row="0" class="p-3 text-gray-600" textWrap="true"
+         [text]="favoritos().length ? favoritos().length + ' favorito(s)' : 'Aún no tienes favoritos. Márcalos con ♡ en Buscar.'"></Label>
+  <ListView row="1" [items]="favoritos()">
+    <ng-template let-item="item">
+      <GridLayout columns="*, auto" class="p-3">
+        <StackLayout col="0" verticalAlignment="center">
+          <Label [text]="'♥ ' + item.nombre" class="font-bold text-lg"></Label>
+          <Label [text]="item.categoria + ' · $' + item.precio" class="text-gray-600"></Label>
+        </StackLayout>
+        <Button col="1" text="Leer ahora" class="text-sm" (tap)="leerAhora(item)"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

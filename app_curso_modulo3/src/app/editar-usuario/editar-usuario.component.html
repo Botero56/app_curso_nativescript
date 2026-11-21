@@ -1,0 +1,9 @@
+<ActionBar title="Editar usuario">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="p-5">
+  <Label text="Nombre de usuario" class="text-gray-600"></Label>
+  <TextField [(ngModel)]="nombre" hint="Tu nombre" class="text-lg p-2"></TextField>
+  <Button text="Guardar" class="mt-3" [isEnabled]="!!nombre().trim()" (tap)="guardar()"></Button>
+</StackLayout>

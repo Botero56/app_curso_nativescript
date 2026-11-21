@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo del splash: lupa + bolsa de compras -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp" android:height="160dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- bolsa -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M32,40h44l-4,40H36z"/>
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="4" android:fillColor="#00000000"
+        android:pathData="M44,40v-6a10,10 0,0 1,20 0v6"/>
+    <!-- lupa -->
+    <path android:strokeColor="#1E3A8A" android:strokeWidth="5" android:fillColor="#00000000"
+        android:pathData="M54,58m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0"/>
+    <path android:strokeColor="#1E3A8A" android:strokeWidth="5" android:fillColor="#00000000"
+        android:strokeLineCap="round" android:pathData="M61,65l7,7"/>
+</vector>
