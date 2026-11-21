@@ -1,0 +1,34 @@
+<ActionBar title="Productos">
+  <ActionItem text="Buscar" ios.position="right" android.position="actionBar" (tap)="irABusqueda()"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="auto, *">
+  <!-- (9) Animación: el ícono gira, crece y cambia el color de fondo al tocarlo -->
+  <StackLayout row="0" orientation="horizontal" class="p-3 bg-gray-100">
+    <Label #icono text="⟳" class="text-3xl text-blue-600 px-2" (tap)="girarYAgregar()"></Label>
+    <Label text="Toca ⟳ o desliza hacia abajo para agregar productos. Doble tap en ♡ = favorito, mantener presionado = info."
+           textWrap="true" class="text-sm ml-2" verticalAlignment="center"></Label>
+  </StackLayout>
+
+  <!-- (3) Pull to refresh -->
+  <PullToRefresh row="1" (refresh)="refrescar($event)">
+    <!-- (2) Tap en un ítem navega al detalle (tap en la fila: Android no dispara
+         itemTap cuando la fila contiene un Button) -->
+    <ListView [items]="productos()">
+      <ng-template let-item="item">
+        <GridLayout columns="*, auto, auto" class="p-3">
+          <StackLayout col="0" verticalAlignment="center" (tap)="verDetalle(item)">
+            <Label [text]="item.nombre" class="font-bold text-lg"></Label>
+            <Label [text]="item.categoria + ' · $' + item.precio" class="text-gray-600"></Label>
+          </StackLayout>
+          <!-- (8) Gestos: doble tap y long press -->
+          <Label col="1" [text]="item.favorito ? '♥' : '♡'" class="text-3xl text-red-500 mx-3"
+                 verticalAlignment="center"
+                 (doubleTap)="toggleFavorito(item)" (longPress)="mostrarInfo(item)"></Label>
+          <!-- (4) Diálogo action para elegir categoría -->
+          <Button col="2" text="Categoría" class="text-sm" (tap)="elegirCategoria(item)"></Button>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </PullToRefresh>
+</GridLayout>

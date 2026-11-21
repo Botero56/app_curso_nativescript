@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.chip {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-radius: 12;
+  padding: 4 10;
+  font-size: 13;
+}

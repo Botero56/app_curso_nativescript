@@ -1,0 +1,27 @@
+<ActionBar title="Buscar productos">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<GridLayout rows="auto, auto, auto, *" class="p-3">
+  <!-- (6) Two-way binding [()] + (7) validador personalizado minLargo -->
+  <TextField row="0" hint="Nombre o categoría (mín. {{ min }} letras)" returnKeyType="search"
+             [(ngModel)]="termino" [minLargo]="min" #ctrl="ngModel" class="text-lg p-2"></TextField>
+
+  @if (ctrl.errors?.['minLargo']; as err) {
+    <Label row="1" class="text-red-600 text-sm"
+           [text]="'Escribe al menos ' + err.requerido + ' caracteres (llevas ' + err.actual + ')'"></Label>
+  }
+
+  <Label row="2" class="text-gray-600 my-2" [text]="resultados().length + ' resultado(s) para: ' + termino()"></Label>
+
+  <!-- (1) ListView con plantilla anidada usando FlexboxLayout -->
+  <ListView row="3" [items]="resultados()" (itemTap)="verDetalle($event)">
+    <ng-template let-item="item">
+      <FlexboxLayout flexDirection="row" flexWrap="wrap" alignItems="center" justifyContent="space-between" class="p-3">
+        <Label [text]="item.nombre" class="font-bold text-lg" flexGrow="1"></Label>
+        <Label [text]="item.categoria" class="chip"></Label>
+        <Label [text]="'$' + item.precio" class="ml-2 text-gray-700"></Label>
+      </FlexboxLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>
