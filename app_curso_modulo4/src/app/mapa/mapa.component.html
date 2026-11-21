@@ -1,0 +1,8 @@
+<ActionBar title="Mapa">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<!-- (7) Google Maps (API key propia en AndroidManifest.xml / Info.plist) -->
+<GridLayout>
+  <MapView [lat]="lat" [lng]="lng" [zoom]="14" (ready)="alListo($event)" (markerTap)="alTocarMarker($event)"></MapView>
+</GridLayout>
