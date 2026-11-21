@@ -1,0 +1,12 @@
+<ActionBar title="Settings">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="p-5">
+  <Label text="Nombre de usuario" class="text-gray-600"></Label>
+  <Label [text]="usuario()" class="text-2xl font-bold"></Label>
+  <Button text="Editar nombre" class="mt-3" (tap)="editar()"></Button>
+
+  <Label text="URL del API (config.ts)" class="text-gray-600 mt-6"></Label>
+  <Label [text]="apiUrl" textWrap="true"></Label>
+</StackLayout>
