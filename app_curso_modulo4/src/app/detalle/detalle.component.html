@@ -1,0 +1,18 @@
+<ActionBar title="Detalle">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+@if (producto(); as p) {
+  <StackLayout class="p-5">
+    <Label [text]="p.nombre" class="text-3xl font-bold"></Label>
+    <Label [text]="p.categoria" class="chip mt-2" horizontalAlignment="left"></Label>
+    <Label [text]="'Precio: $' + p.precio" class="text-xl mt-4"></Label>
+    <Label [text]="p.descripcion" textWrap="true" class="mt-2 text-gray-700"></Label>
+    <Label [text]="p.favorito ? '♥ En favoritos' : '♡ No es favorito'" class="mt-4 text-red-500 text-lg"></Label>
+    <!-- (3) social-share: compartir el producto como texto -->
+    <Button text="Compartir producto" class="mt-6" (tap)="compartir(p)"></Button>
+    <Button text="Volver al listado" class="mt-2" (tap)="volver()"></Button>
+  </StackLayout>
+} @else {
+  <Label text="Producto no encontrado" class="p-5"></Label>
+}

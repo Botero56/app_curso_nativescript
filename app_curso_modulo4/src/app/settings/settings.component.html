@@ -1,0 +1,24 @@
+<ActionBar title="Settings">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="p-5">
+  <Label text="Nombre de usuario" class="text-gray-600"></Label>
+  <Label [text]="usuario()" class="text-2xl font-bold"></Label>
+  <Button text="Editar nombre" class="mt-3" (tap)="editar()"></Button>
+
+  <Label text="URL del API (config.ts)" class="text-gray-600 mt-6"></Label>
+  <Label [text]="apiUrl" textWrap="true"></Label>
+
+  <!-- (1) Token de Firebase Cloud Messaging (para enviar notificaciones desde la consola) -->
+  <Label text="Token Firebase (FCM)" class="text-gray-600 mt-6"></Label>
+  <TextView [text]="token()" editable="false" class="text-xs"></TextView>
+  <Button text="Copiar token" (tap)="copiarToken()"></Button>
+
+  <Label text="Últimas notificaciones" class="text-gray-600 mt-6"></Label>
+  @for (n of notificaciones(); track $index) {
+    <Label [text]="'🔔 ' + n" textWrap="true" class="text-sm"></Label>
+  } @empty {
+    <Label text="Ninguna todavía." class="text-sm"></Label>
+  }
+</StackLayout>

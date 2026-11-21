@@ -1,0 +1,16 @@
+<ActionBar title="Cámara">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="p-5">
+  <!-- (5) Plugin camera: tomar una foto -->
+  <Button text="📷 Tomar foto" (tap)="tomarFoto()"></Button>
+
+  @if (foto(); as img) {
+    <Image [src]="img" height="300" stretch="aspectFit" class="mt-4"></Image>
+    <!-- (6) La foto tomada se comparte con social-share -->
+    <Button text="Compartir foto" class="mt-2" (tap)="compartirFoto()"></Button>
+  } @else {
+    <Label text="Aún no hay foto." class="text-gray-600 mt-4"></Label>
+  }
+</StackLayout>

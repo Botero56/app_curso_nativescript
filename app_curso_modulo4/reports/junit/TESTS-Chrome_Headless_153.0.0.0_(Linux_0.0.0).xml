@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 153.0.0.0 (Linux 0.0.0)" package="app_curso_modulo4" timestamp="2026-11-21T22:25:53" id="0" hostname="vm" tests="4" errors="0" failures="0" time="0.003">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"/>
+  </properties>
+  <testcase name="leidosReducer devuelve el estado inicial (lista vacía) con una acción desconocida" time="0.001" classname="Chrome_Headless_153_0_0_0_(Linux_0_0_0)..leidosReducer"/>
+  <testcase name="leidosReducer no duplica un producto ya leído: lo mueve al inicio" time="0" classname="Chrome_Headless_153_0_0_0_(Linux_0_0_0)..leidosReducer"/>
+  <testcase name="leidosReducer agrega el producto al inicio con &quot;Leer ahora&quot;" time="0.001" classname="Chrome_Headless_153_0_0_0_(Linux_0_0_0)..leidosReducer"/>
+  <testcase name="leidosReducer no muta el estado anterior (inmutabilidad)" time="0.001" classname="Chrome_Headless_153_0_0_0_(Linux_0_0_0)..leidosReducer"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
