@@ -1,0 +1,15 @@
+<ActionBar title="Compartir">
+  <NavigationButton text="Atrás" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout class="p-5">
+  <!-- (3) social-share: contenido de tipo texto -->
+  <Label text="Compartir texto" class="text-xl font-bold"></Label>
+  <TextView [(ngModel)]="texto" hint="Escribe un mensaje" class="border p-2 mt-2" height="100"></TextView>
+  <Button text="Compartir texto" class="mt-2" (tap)="compartirTexto()"></Button>
+
+  <!-- (4) social-share: contenido de tipo imagen -->
+  <Label text="Compartir imagen" class="text-xl font-bold mt-6"></Label>
+  <Image src="res://logo" height="120" stretch="aspectFit" class="mt-2"></Image>
+  <Button text="Compartir imagen" class="mt-2" (tap)="compartirImagen()"></Button>
+</StackLayout>
